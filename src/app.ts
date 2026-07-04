@@ -20,7 +20,7 @@ class Task{
         t.innerHTML = `
                 <h2 class="uTaskTitle">${this.name}</h2>
                 <p class="uTaskDesc">${this.description}</p>
-                <footer class="date">Data: ${this.date.toLocaleDateString()}</footer>
+                <footer class="date">Data: ${this.date.toLocaleString()}</footer>
                 <input type="checkbox" id="task${this.id}Checkbox">Concluída<br>
                 <button class="deleteButton" id="task${this.id}Delete">Excluir</button>
             `;
