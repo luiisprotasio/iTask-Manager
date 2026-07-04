@@ -71,6 +71,12 @@ body{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
 }
 .uTaskDesc{
+    background-color: rgb(221, 190, 196);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1px;
+    padding: 3px 3px;
     max-width: 100%;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -94,6 +100,12 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     text-decoration: line-through;
 }
 .cTaskDesc{
+    background-color: rgb(204, 224, 205);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1px;
+    padding: 3px 3px;
     max-width: 100%;
 font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -157,7 +169,6 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: rgba(232, 227, 227, 0.5); 
     height: 100vh;
     width: 100vw;
