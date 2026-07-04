@@ -8,7 +8,7 @@ class Task{
     constructor(name:string, description:string, completed:boolean){
         this.name = name;
         this.description = description;
-        this.id = Math.random()
+        this.id = Math.floor(Math.random() * 10000);
         this.completed = completed;
         this.date = new Date();
     }
@@ -20,16 +20,30 @@ class Task{
                 <h2 class="uTaskTitle">${this.name}</h2>
                 <p class="uTaskDesc">${this.description}</p>
                 <footer class="date">Data: ${this.date.toLocaleDateString()}</footer>
-                <input type="checkbox" class="taskCheckbox">Concluída</input><br>
-                <button class="deleteTask">Excluir</button>
+                <input type="checkbox" id="task${this.id}Checkbox">Concluída</input><br>
+                <button class="deleteButton">Excluir</button>
             `;
-        console.log(`A tarefa ${this.name} foi criada com sucesso!`);
-        return t;
+     const checkbox = t.querySelector(".taskCheckbox") as HTMLInputElement;
+        if (checkbox) {
+            checkbox.addEventListener("change", () => {
+                this.check(); 
+            });
+             const deleteBtn = t.querySelector(".deleteButton") as HTMLButtonElement;
+        if (deleteBtn) {
+            deleteBtn.addEventListener("click", () => {
+                t.remove(); 
+                this.remove();
+            });
+        }
+            console.log(`A tarefa ${this.name} foi criada com sucesso!`);
+        return t;  
     }
+        }
     remove(){
         this.name="";
         this.description="";
         this.completed=false;
+        this.id=-1;
         console.log(`A tarefa ${this.name} foi excluída.`);
     }
     check(){
@@ -76,4 +90,37 @@ class Task{
     }
 }
 }
+}
+const addTaskButton = document.getElementById("newTask");
+const taskLists = document.querySelector(".taskList") as HTMLDivElement;
+const confirmTaskButton = document.getElementById("confirmTask");
+const closeButton = document.getElementById("buttonClose");
+const modal = document.querySelector(".ModalFechado") as HTMLDialogElement;
+if(addTaskButton){
+    addTaskButton.addEventListener("click", () => {
+        modal.showModal();
+    });
+}
+if(closeButton){
+    closeButton.addEventListener("click", () => {
+        modal.close();
+    });
+}
+if(confirmTaskButton){
+    confirmTaskButton.addEventListener("click", () => {
+        const taskNameInput = document.getElementById("taskName") as HTMLInputElement;
+        const taskDescInput = document.getElementById("taskDesc") as HTMLTextAreaElement;
+        const taskName = taskNameInput.value;
+        const taskDesc = taskDescInput.value;
+        const newTask = new Task(taskName, taskDesc, false);
+        if(taskLists){
+            const Tarefa = newTask.add();
+            if(Tarefa){
+                taskLists.prepend(Tarefa);
+            }
+        }
+        taskNameInput.value = "";
+        taskDescInput.value = "";
+        modal.close();
+    });
 }
