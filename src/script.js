@@ -1,18 +1,18 @@
-class Task{
-    name:string;
-    description:string;
-    completed:boolean;
-    id:number;
-    date: Date;
-
-    constructor(name:string, description:string, completed:boolean){
+"use strict";
+class Task {
+    name;
+    description;
+    completed;
+    id;
+    date;
+    constructor(name, description, completed) {
         this.name = name;
         this.description = description;
         this.id = Math.floor(Math.random() * 10000);
         this.completed = completed;
         this.date = new Date();
     }
-    add(){
+    add() {
         console.log('1');
         const t = document.createElement("div");
         t.classList.add("uncompletedTask");
@@ -24,64 +24,60 @@ class Task{
                 <input type="checkbox" id="task${this.id}Checkbox">Concluída<br>
                 <button class="deleteButton" id="task${this.id}Delete">Excluir</button>
             `;
-            console.log('2');
-     const checkbox = t.querySelector(`#task${this.id}Checkbox`) as HTMLInputElement;
+        console.log('2');
+        const checkbox = t.querySelector(`#task${this.id}Checkbox`);
         if (checkbox) {
             checkbox.addEventListener("change", () => {
-                this.check(); 
+                this.check();
             });
             console.log('3');
-             const deleteBtn = t.querySelector(`#task${this.id}Delete`) as HTMLButtonElement;
-        if (deleteBtn) {
-            deleteBtn.addEventListener("click", () => { 
-                t.remove(); 
-                this.remove();
-            });
-        }
+            const deleteBtn = t.querySelector(`#task${this.id}Delete`);
+            if (deleteBtn) {
+                deleteBtn.addEventListener("click", () => {
+                    t.remove();
+                    this.remove();
+                });
+            }
             console.log(`A tarefa ${this.name} foi criada com sucesso!`);
-        return t;  
-    }
+            return t;
         }
-    remove(){
-        this.name="";
-        this.description="";
-        this.completed=false;
-        this.id=-1;
+    }
+    remove() {
+        this.name = "";
+        this.description = "";
+        this.completed = false;
+        this.id = -1;
         console.log(`A tarefa ${this.name} foi excluída.`);
     }
-    check(){
-   
+    check() {
         this.completed = !this.completed;
-
         const card = document.getElementById(`task${this.id}`);
-        if(card){
+        if (card) {
             const titulo = card.querySelector("h2");
             const descricao = card.querySelector("p");
-
-            if(this.completed){
+            if (this.completed) {
                 card.classList.remove("uncompletedTask");
                 card.classList.add("completedTask");
-
                 if (titulo) {
                     titulo.classList.remove("uTaskTitle");
-                    titulo.classList.add("cTaskTitle"); 
+                    titulo.classList.add("cTaskTitle");
                 }
                 if (descricao) {
                     descricao.classList.remove("uTaskDesc");
-                    descricao.classList.add("cTaskDesc"); 
+                    descricao.classList.add("cTaskDesc");
                 }
                 console.log(`A tarefa ${this.name} foi concluída.`);
-            } else {
+            }
+            else {
                 card.classList.remove("completedTask");
                 card.classList.add("uncompletedTask");
-
                 if (titulo) {
                     titulo.classList.remove("cTaskTitle");
-                    titulo.classList.add("uTaskTitle"); 
+                    titulo.classList.add("uTaskTitle");
                 }
                 if (descricao) {
                     descricao.classList.remove("cTaskDesc");
-                    descricao.classList.add("uTaskDesc"); 
+                    descricao.classList.add("uTaskDesc");
                 }
                 console.log(`A tarefa ${this.name} está pendente.`);
             }
@@ -89,34 +85,34 @@ class Task{
     }
 }
 const addTaskButton = document.getElementById("newTask");
-const taskLists = document.querySelector(".taskList") as HTMLDivElement;
+const taskLists = document.querySelector(".taskList");
 const confirmTaskButton = document.getElementById("confirmTask");
 const closeButton = document.getElementById("buttonClose");
-const modal = document.querySelector(".ModalFechado") as HTMLDialogElement;
-if(addTaskButton){
+const modal = document.querySelector(".ModalFechado");
+if (addTaskButton) {
     addTaskButton.addEventListener("click", () => {
         modal.showModal();
         modal.classList.remove("ModalFechado");
         modal.classList.add("ModalAberto");
     });
 }
-if(closeButton){
+if (closeButton) {
     closeButton.addEventListener("click", () => {
         modal.close();
         modal.classList.remove("ModalAberto");
         modal.classList.add("ModalFechado");
     });
 }
-if(confirmTaskButton){
+if (confirmTaskButton) {
     confirmTaskButton.addEventListener("click", () => {
-        const taskNameInput = document.getElementById("taskName") as HTMLInputElement;
-        const taskDescInput = document.getElementById("taskDesc") as HTMLTextAreaElement;
+        const taskNameInput = document.getElementById("taskName");
+        const taskDescInput = document.getElementById("taskDesc");
         const taskName = taskNameInput.value;
         const taskDesc = taskDescInput.value;
         const newTask = new Task(taskName, taskDesc, false);
-        if(taskLists){
+        if (taskLists) {
             const Tarefa = newTask.add();
-            if(Tarefa){
+            if (Tarefa) {
                 taskLists.prepend(Tarefa);
             }
         }
