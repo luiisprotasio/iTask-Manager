@@ -1,0 +1,175 @@
+body{
+    background: linear-gradient(135deg, #4583ca, #173291);
+    display: flex;
+    justify-content: center;;
+}
+.interface{
+    background-color: rgb(232, 227, 227);
+    color: black;
+    border-radius: 30px;
+  height: 98vh;
+    width: 98vw;
+}
+.header{
+    display: flex;
+    justify-content: start;
+    gap: 70%;
+    padding: 20px 10px;
+    width: 100%;
+    height: 7%;
+}
+.logo{
+    padding: 0px 40px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.linha{
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    display: block;
+}
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2vw;
+}
+.buttonNav{
+    height: 5vh;
+    width: 7vw;
+    background-color: rgb(208, 203, 203);
+    color: black;
+    font-style: bold;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bolder;
+    font-size: large;
+}
+.taskList{
+    padding: 10px 30px;
+    display: flex;
+    justify-content: start;
+    gap: 2vw;
+
+}
+.uncompletedTask{
+    background-color: rgb(188, 148, 148);
+    padding: 10px 10px;
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    overflow-y  :scroll;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.uTaskTitle{
+    max-width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+}
+.uTaskDesc{
+    background-color: rgb(221, 190, 196);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1px;
+    padding: 3px 3px;
+    max-width: 100%;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.completedTask{
+    background-color: rgb(183, 197, 175);
+    padding: 10px 10px;
+    width: 10vw;
+    height: 25vh;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    overflow-y  :scroll;
+    overflow-x: hidden;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+.cTaskTitle{
+    max-width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif    ;
+    text-decoration: line-through;
+}
+.cTaskDesc{
+    background-color: rgb(204, 224, 205);
+    border-radius: 5px;
+    border-style: solid;
+    border-color: rgb(0, 0, 0);
+    border-width: 1px;
+    padding: 3px 3px;
+    max-width: 100%;
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.ModalFechado{
+   display: none;
+
+}
+.ModalAberto{
+    display: block;
+}
+.popup{
+    display:block;
+    border-radius: 10px;
+    height: 55vh;
+    width: 37vw;
+    padding: 2vh 2vw;
+    background-color: rgb(181, 206, 207);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+}
+#taskName{
+    width: 100%;
+    height: 10%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin-bottom: 2vh;
+}
+#taskDesc{
+    text-align: start;
+    width: 100%;
+    height: 40%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    margin-bottom: 5%;
+}
+#confirmTask{
+    width: 80%;
+    height: 10%;
+    margin-left: 10%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgb(208, 203, 203);
+}
+#buttonClose{
+    width: 5%;
+    height: 5%;
+    border-radius: 10px;
+    border-color: black;
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgb(241, 50, 50);
+    margin-left: 95%;
+}
+.screenFade{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(232, 227, 227, 0.5); 
+    height: 100vh;
+    width: 100vw;
+}
